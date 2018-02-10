@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'db4free.net'),
+            'host' => env('DB_HOST', 'sql11.freemysqlhosting.net'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'endzaitlaravel'),
-            'username' => env('DB_USERNAME', 'endzait'),
-            'password' => env('DB_PASSWORD', '112233'),
+            'database' => env('DB_DATABASE', 'sql11220632'),
+            'username' => env('DB_USERNAME', 'sql11220632'),
+            'password' => env('DB_PASSWORD', 'Dn9w1aRVAp'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
