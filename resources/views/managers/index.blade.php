@@ -16,6 +16,7 @@
             <h2>Все менеджеры</h2>
             <table class="table table-bordered table-stripped">
                 <tr>
+                    <th>ИД</th>
                     <th>Имя</th>
                     <th>Email</th>
                     <th>Телефон</th>
@@ -25,6 +26,7 @@
                 </tr>
             @foreach($mans as $man)
                 <tr id={{ $man->id }}>
+                    <td>{{ $man->id }}</td>
                     <td>{{ $man->name }}</td>
                     <td>{{ $man->email }}</td>
                     <td>{{ $man->phone }}</td>

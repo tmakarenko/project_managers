@@ -16,6 +16,7 @@
             <h2>Все проекты</h2>
             <table class="table table-bordered table-stripped">
                 <tr>
+                    <th>ИД</th>
                     <th>Название</th>
                     <th>Цена</th>
                     <th>Исполнитель</th>
@@ -25,6 +26,7 @@
                 </tr>
             @foreach($projects as $proj)
                 <tr id={{ $proj->id }}>
+                    <td>{{ $proj->id }}</td>
                     <td>{{ $proj->name }}</td>
                     <td>{{ $proj->price }}</td>
                     <td>{{ $proj->executor }}</td>
