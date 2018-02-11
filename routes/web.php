@@ -20,11 +20,11 @@ Route::get('/', function () {
 
 Route::prefix('/projects')->group(function () {
 	Route::get('/','ProjectController@index');
-    Route::get('/{pid}','ProjectController@updateView');
+
     Route::get('/create', function () {
     	return view('projects.create');
     });
-
+    Route::get('/{pid}','ProjectController@updateView');
     Route::get('/{pid}/managers/{mid}','ProjectController@getManager');
     Route::get('{pid}/managers','ProjectController@showManagers');
 });

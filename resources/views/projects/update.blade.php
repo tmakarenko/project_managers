@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <h1>Редактировать проект</h1>
-        <form method="POST" action="/api/projects/{{$proj->id}}" id="pj-form" name="pj-form">
+        <form method="POST" action="/api/projects/{{proj->id}}" id="pj-form" name="pj-form">
             {{ csrf_field() }}
             @if ($errors->any())
                 <div class="alert alert-danger">
