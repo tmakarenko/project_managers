@@ -20,8 +20,7 @@ Route::get('/', function () {
 
 Route::prefix('/projects')->group(function () {
 	Route::get('/','ProjectController@index');
-	Route::post('/','ProjectController@store');
-
+    Route::get('/{pid}','ProjectController@updateView');
     Route::get('/create', function () {
     	return view('projects.create');
     });
@@ -35,10 +34,10 @@ Route::prefix('/projects')->group(function () {
 Route::prefix('/managers')->group(function () {
     
     Route::get('/','ManagerController@index');
-    Route::post('/','ManagerController@store');
     Route::get('/create', function () {
     	return view('managers.create');
     });
+    Route::get('/{mid}','ManagerController@updateView');
     Route::get('/{mid}/projects/{pid}','ManagerController@getProject');
     Route::get('{mid}/projects','ManagerController@showProjects');
 });

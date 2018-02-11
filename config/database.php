@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'sql11.freemysqlhosting.net'),
+            'host' => env('DB_HOST', 'laravel-pcsh.mysql.us1.frbit.com'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'sql11220632'),
-            'username' => env('DB_USERNAME', 'sql11220632'),
-            'password' => env('DB_PASSWORD', 'Dn9w1aRVAp'),
+            'database' => env('DB_DATABASE', 'laravel-pcsh'),
+            'username' => env('DB_USERNAME', 'laravel-pcsh'),
+            'password' => env('DB_PASSWORD', 'LZ==M3LxuZHxSPzvvkdb-uwm'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

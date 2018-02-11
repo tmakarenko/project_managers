@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @section('title')
-    Create project
+    Update project
 @endsection
 @section('content');
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <h1>Добавить проект</h1>
-        <form method="POST" action="/api/projects" id="pj-form" name="pj-form">
+            <h1>Редактировать проект</h1>
+        <form method="POST" action="/api/projects/{{$proj->id}}" id="pj-form" name="pj-form">
             {{ csrf_field() }}
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -17,25 +17,26 @@
                     </ul>
                 </div>
             @endif
+            <input type="hidden" name="_method" value="PUT">
             <div class="form-group">
                 <label for="name">Название проекта</label>
-                <input id="name" name="name" type="text" class="form-control" value="{{ old('name') }}">
+                <input id="name" name="name" type="text" class="form-control" value="{{ old('name') }}{{$proj->name}}">
             </div>
             <div class="form-group">
                 <label for="price">Цена</label>
-                <input id="price" name="price" type="text" class="form-control" value="{{ old('price') }}">
+                <input id="price" name="price" type="text" class="form-control" value="{{ old('price') }}{{$proj->price}}">
             </div>
             <div class="form-group">
                 <label for="exec">Исполнитель</label>
-                <input id="exec" name="executor" type="text" class="form-control" value="{{ old('executor') }}">
+                <input id="exec" name="executor" type="text" class="form-control" value="{{ old('executor') }}{{$proj->executor}}">
             </div>
             <div class="form-group">
                 <label for="start_date">Начало выполнения</label>
-                <input id="start_date" name="execution_start_date" type="date" class="form-control" value="{{ old('execution_start_date') }}">
+                <input id="start_date" name="execution_start_date" type="date" class="form-control" value="{{ old('execution_start_date') }}{{$proj->execution_start_date}}">
             </div>
             <div class="form-group">
                 <label for="end_date">Конец выполнения</label>
-                <input id="end_date" name="execution_end_date" type="date" class="form-control" value="{{ old('execution_end_date') }}">
+                <input id="end_date" name="execution_end_date" type="date" class="form-control" value="{{ old('execution_end_date') }}{{$proj->execution_start_date}}">
             </div>
             <input id="submit" type="submit" class="btn btn-submit" value="Сохранить" onclick="onSubmit()">
             

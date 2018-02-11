@@ -21,6 +21,7 @@
                     <th>Исполнитель</th>
                     <th>Дата начала выполнения</th>
                     <th>Дата окончания выполнения</th>
+                    <th>Действия</th>
                 </tr>
             @foreach($projects as $proj)
                 <tr id={{ $proj->id }}>
@@ -29,6 +30,7 @@
                     <td>{{ $proj->executor }}</td>
                     <td>{{ $proj->execution_start_date }}</td>
                     <td>{{ $proj->execution_end_date }}</td>
+                    <td><a href="/projects/{{$proj->id}}" class="btn btn-info">Редактировать</a></td>
                 </tr>
             @endforeach
                 

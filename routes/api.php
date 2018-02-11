@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::prefix('/managers')->group(function () {
+	Route::put('/{mid}','ManagerController@update');
+	Route::post('/','ManagerController@store');
+});
+
+Route::prefix('/projects')->group(function () {
+	Route::post('/','ProjectController@store');
+	Route::put('/{pid}','ProjectController@update');
+});

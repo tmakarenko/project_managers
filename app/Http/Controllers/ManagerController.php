@@ -15,7 +15,7 @@ class ManagerController extends Controller
     }
 
     public function store(Request $request){
-    	//$file = $request->file('file');
+    	
 
         $validator = Validator::make($request->all(),[
             'name' => 'required|string',
@@ -72,5 +72,38 @@ class ManagerController extends Controller
         }finally{
             return Response::json($response, $statusCode);
         }
+    }
+
+
+    public function updateView($mid){
+        return view('managers.update',['man' => Manager::find($mid)]);
+    }
+
+    public function update($mid,Request $request){
+
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'phone' => 'required|regex:/(0)[0-9]{9}/',
+            'company' => 'required|string',
+            'photo_link' => 'required|mimes:jpeg,jpg,png',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('managers/create')
+                        ->withErrors($validator)
+                        ->withInput($request->all());
+        }
+
+
+
+
+        $file = $request->file('photo_link');
+            $name = $file->getClientOriginalName();
+            $file->move('photos' , $name);
+            $inputs = $request->all();
+            $inputs['photo_link'] = "photos/".$name;
+        Manager::find($mid)->update($inputs);
+        return redirect('/managers');
     }
 }

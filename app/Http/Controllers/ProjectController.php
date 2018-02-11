@@ -72,4 +72,30 @@ class ProjectController extends Controller
             return Response::json($response, $statusCode);
         }
     }
+
+    public function updateView($pid){
+        return view('projects.update',['proj' => Project::find($pid)]);
+    }
+
+    
+    public function update($pid, Request $request){
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|string',
+            'price' => 'required|numeric',
+            'executor' => 'required|string',
+            'execution_start_date' => 'required|date',
+            'execution_end_date' => 'required|date',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('projects/create')
+                        ->withErrors($validator)
+                        ->withInput($request->all());
+        }
+
+
+
+        Project::find($pid)->update($request->all());
+        return redirect('/projects');
+    }
 }

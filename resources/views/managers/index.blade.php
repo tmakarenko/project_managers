@@ -21,6 +21,7 @@
                     <th>Телефон</th>
                     <th>Компания</th>
                     <th>Фото</th>
+                    <th>Действие</th>
                 </tr>
             @foreach($mans as $man)
                 <tr id={{ $man->id }}>
@@ -29,6 +30,7 @@
                     <td>{{ $man->phone }}</td>
                     <td>{{ $man->company }}</td>
                     <td><img src={{ asset("$man->photo_link") }} style="width:100px; height:100px" /></td>
+                    <td><a href="/managers/{{$man->id}}" class="btn btn-info">Редактировать</a></td>
                 </tr>
             @endforeach
                 

@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @section('title')
-    Create manager
+    Update manager
 @endsection
 @section('content');
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <h1>Добавить менеджера</h1>
-        <form method="POST" action="/api/managers" enctype="multipart/form-data" id="mg-form">
+            <h1>Редактировать менеджера</h1>
+        <form method="POST" action="/api/managers/{{$man->id}}" enctype="multipart/form-data" id="mg-form">
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -16,25 +16,26 @@
                     </ul>
                 </div>
             @endif
+            <input type="hidden" name="_method" value="PUT">
             <div class="form-group">
                 <label for="name">Имя</label>
-                <input id="name" name="name" type="text" class="form-control" value="{{ old('name') }}">
+                <input id="name" name="name" type="text" class="form-control" value="{{ old('name') }}{{$man->name}}">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" class="form-control" value="{{ old('email') }}">
+                <input id="email" name="email" type="email" class="form-control" value="{{ old('email') }}{{$man->email}}">
             </div>
             <div class="form-group">
                 <label for="phone">Контактный номер</label>
-                <input id="phone" name="phone" type="text" class="form-control" value="{{ old('phone') }}">
+                <input id="phone" name="phone" type="text" class="form-control" value="{{ old('phone') }}{{$man->phone}}">
             </div>
             <div class="form-group">
                 <label for="company">Компания</label>
-                <input id="company" name="company" type="text" class="form-control" value="{{ old('company') }}">
+                <input id="company" name="company" type="text" class="form-control" value="{{ old('company') }}{{$man->company}}">
             </div>
             <div class="form-group">
                 <label for="photo">Фото</label>
-                <input id="photo" name="photo_link" type="file" class="form-control" value="{{ old('photo_link') }}">
+                <input id="photo" name="photo_link" type="file" class="form-control" value="{{ old('photo_link') }}{{$man->photo_link}}">
                 <label id="photo-error" class="error" for="photo" style="display:none">Выберите файл картинку</label>
             </div>
             {{ csrf_field() }}
