@@ -51,7 +51,7 @@
                      $('#current-man').css('display','block');
 		     $('#current-man-ul').empty();
                     data.forEach((item) => {
-                        $('#current-man-ul').append(item['id']+" "+item['name']);
+                        $('#current-man-ul').append("ID: "+item['id']+" Name: "+item['name']);
                     });
                 });
             });
