@@ -47,6 +47,7 @@
                 })
                 .then(data => {
                      $('#current-man').css('display','block');
+		     $('#current-man-ul').empty();
                     data.forEach((item) => {
                         $('#current-man-ul').append(item['id']+" "+item['name']);
                     });

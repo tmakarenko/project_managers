@@ -47,6 +47,7 @@
                 })
                 .then(data => {
                      $('#current-pj').css('display','block');
+		     $('#current-pj-ul').empty();
                     data.forEach((item) => {
                         $('#current-pj-ul').append(item['id']+" "+item['name']);
                         
