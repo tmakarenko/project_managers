@@ -28,7 +28,7 @@
                     <td>{{ $man->email }}</td>
                     <td>{{ $man->phone }}</td>
                     <td>{{ $man->company }}</td>
-                    <td><img src={{ asset("$man->photo_link") style="width:200px; height:200px"}}/></td>
+                    <td><img src={{ asset("$man->photo_link") }} style="width:200px; height:200px" /></td>
                 </tr>
             @endforeach
                 
