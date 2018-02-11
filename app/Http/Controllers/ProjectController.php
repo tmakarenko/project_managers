@@ -42,7 +42,7 @@ class ProjectController extends Controller
     public function getManager($pid,$mid){
         try {
             Project::find($pid)->managers()->attach(Manager::find($mid));
-        return Response::json("{}", 200);
+        return redirect('/projects');
         } catch (Exception $e) {
             return Response::json("{}", 404);
         }
