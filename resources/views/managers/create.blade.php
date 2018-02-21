@@ -46,18 +46,7 @@
 
            
     function onSubmit(){
-            /*
-            submitHandler: function(form) {
-                let photo_name = $('#photo').val().split('.').pop().toUpperCase();;
-                if(photo_name !== "PNG" || photo_name !== "JPG" || photo_name !== "GIF"){
             
-                     $('#photo-error').css('display','block');
-                    
-                }else{
-                    form.submit();
-                }            
-              },
-            */
             $("#mg-form").validate({              
               rules: {
                 name: "required",
